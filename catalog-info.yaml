@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: quarkus-demo-1
+  description: Quarkus (Camel) service created by Backstage Software Template
+  annotations:
+    vault.io/secrets-path: backstage
+    github.com/project-slug: ThanutchaiMbix/quarkus-demo-1
+    backstage.io/source-location: url:https://github.com/ThanutchaiMbix/quarkus-demo-1/tree/main/
+    argocd/app-name: quarkus-demo-1
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: quarkus-demo-1
+    backstage.io/kubernetes-namespace: demo
+  tags:
+    - quarkus
+    - camel
+    - java
+    - maven
+    - kubernetes
+    - tekton
+    - argocd
+  links:
+    - url: https://openshift-gitops-server-openshift-gitops.apps.ocp420.mbixtech.net/applications/openshift-gitops/quarkus-demo-1
+      title: ArgoCD Dashboard
+      icon: dashboard
+    - url: https://quarkus-demo-1-demo.apps.ocp420.mbixtech.net/q/swagger-ui
+      title: Swagger API Docs
+      icon: docs
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:default/guests
+  providesApis:
+    - quarkus-demo-1-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: quarkus-demo-1-api
+  description: The quarkus-demo-1 API
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: group:default/guests
+  definition:
+    $text: ./swagger/swagger.yaml

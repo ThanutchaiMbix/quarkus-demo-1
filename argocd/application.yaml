@@ -1,0 +1,28 @@
+# ArgoCD Application — ไฟล์ประกาศเทียบเท่ากับที่ Template 2 จะสร้างให้อัตโนมัติ
+#
+# ปกติไม่ต้อง apply เอง: ใช้ template "Deploy Service to OpenShift" ใน Backstage
+# ไฟล์นี้เก็บไว้เพื่อ (1) ใช้ manual นอก Backstage หรือ (2) เป็น seed สำหรับ
+# แนว app-of-apps ถ้าต่อยอดในอนาคต
+#
+# Apply manual:
+#   oc apply -f argocd/application.yaml -n openshift-gitops
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: quarkus-demo-1
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ThanutchaiMbix/quarkus-demo-1.git
+    targetRevision: HEAD
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

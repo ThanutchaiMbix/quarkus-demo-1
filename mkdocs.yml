@@ -1,0 +1,6 @@
+site_name: quarkus-demo-1
+site_description: Quarkus (Camel) service created by Backstage Software Template
+plugins:
+  - techdocs-core
+nav:
+  - Getting Started: index.md
