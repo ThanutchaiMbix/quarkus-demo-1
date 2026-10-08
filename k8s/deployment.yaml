@@ -20,7 +20,7 @@ spec:
         - name: quarkus-demo-1
           # tag "latest" เป็นค่าตั้งต้น — Tekton (update-manifests step) จะ bump
           # เป็น commit sha ให้อัตโนมัติทุกครั้งที่ build แล้ว ArgoCD จะ sync ตาม
-          image: image-registry.openshift-image-registry.svc:5000/demo/quarkus-demo-1:latest
+          image: image-registry.openshift-image-registry.svc:5000/demo/quarkus-demo-1:440b8fb890ed565bb2ee0d4565a2de01fed76abc
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
