@@ -76,7 +76,7 @@ spec:
     kind: Service
     name: quarkus-demo-1
   port:
-    targetPort: 80
+    targetPort: 8080
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
