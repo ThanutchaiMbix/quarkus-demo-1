@@ -16,7 +16,7 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello(@QueryParam("name") String name) {
-        String who = (name == null || name.isBlank()) ? "Minikube" : name;
+        String who = (name == null || name.isBlank()) ? "OpenShift" : name;
         return greeting + " " + who + "! Quarkus + Camel is running on Kubernetes.";
     }
 }
