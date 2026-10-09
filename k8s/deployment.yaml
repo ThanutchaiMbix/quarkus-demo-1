@@ -59,6 +59,9 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
 ---
 # OpenShift Route — URL จะเป็น https://<name>-<namespace>.<clusterAppsDomain>
 apiVersion: route.openshift.io/v1
@@ -74,3 +77,6 @@ spec:
     name: quarkus-demo-1
   port:
     targetPort: 80
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
